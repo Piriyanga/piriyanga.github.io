@@ -1,0 +1,90 @@
+c<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CV | Piriyanga Christopher</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <a href="index.html#home" class="logo">
+          Piriyanga Christopher
+        </a>
+
+        <a href="index.html" class="btn btn-secondary">
+          <i class="fa-solid fa-arrow-left"></i>
+          Back to Portfolio
+        </a>
+      </nav>
+    </header>
+
+    <main class="cv-page">
+      <div class="container">
+        <div class="cv-heading">
+          <p class="eyebrow">Curriculum Vitae</p>
+          <h1>My Professional CV</h1>
+
+          <p>
+            View my CV below or download a copy for your records.
+          </p>
+
+          <div class="cv-actions">
+            <a href="resume.pdf" class="btn btn-primary" download>
+              <i class="fa-solid fa-download"></i>
+              Download CV
+            </a>
+
+            <a
+              href="resume.pdf"
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="fa-solid fa-up-right-from-square"></i>
+              Open PDF in New Tab
+            </a>
+          </div>
+        </div>
+
+        <div class="cv-viewer">
+          <iframe
+            src="resume.pdf"
+            title="Piriyanga Christopher CV"
+          >
+            <p>
+              Your browser cannot display the PDF.
+              <a href="resume.pdf" download>Download the CV instead</a>.
+            </p>
+          </iframe>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <p>
+          © <span id="year"></span> Piriyanga Christopher. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
