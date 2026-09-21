@@ -10,19 +10,52 @@ if (yearElement) {
 
 // Mobile navigation.
 if (navToggle && navMenu) {
-  navToggle.addEventListener("click", () => {
+  const closeMenu = () => {
+    if (!navMenu.classList.contains("active")) {
+      return;
+    }
+
+    navMenu.classList.remove("active");
+    navToggle.classList.remove("active");
+    navToggle.setAttribute("aria-expanded", "false");
+  };
+
+  navToggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+
     const isOpen = navMenu.classList.toggle("active");
 
     navToggle.classList.toggle("active", isOpen);
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
+  // Close when a link is tapped.
   navMenu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      navToggle.classList.remove("active");
-      navToggle.setAttribute("aria-expanded", "false");
-    });
+    link.addEventListener("click", closeMenu);
+  });
+
+  // Close when the page is scrolled.
+  window.addEventListener("scroll", closeMenu, { passive: true });
+
+  // Close when tapping outside the menu.
+  document.addEventListener("click", (event) => {
+    if (!navMenu.contains(event.target) && !navToggle.contains(event.target)) {
+      closeMenu();
+    }
+  });
+
+  // Close on Escape.
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+  // Close when switching back to desktop width.
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      closeMenu();
+    }
   });
 }
 
