@@ -18,6 +18,7 @@ if (navToggle && navMenu) {
     navMenu.classList.remove("active");
     navToggle.classList.remove("active");
     navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Open navigation menu");
   };
 
   navToggle.addEventListener("click", (event) => {
@@ -27,6 +28,10 @@ if (navToggle && navMenu) {
 
     navToggle.classList.toggle("active", isOpen);
     navToggle.setAttribute("aria-expanded", String(isOpen));
+     navToggle.setAttribute(
+    "aria-label",
+    isOpen ? "Close navigation menu" : "Open navigation menu"
+  );
   });
 
   // Close when a link is tapped.
