@@ -824,9 +824,10 @@ a {
   }
 
   .hero::before {
-    height: 280px;
+   /* height: 280px;
     right: -100px;
-    width: 280px;
+    width: 280px; */
+    display: none;    
   }
 
   .hero-text h1 {
@@ -855,29 +856,31 @@ a {
   .nav-menu {
     background: #101a2a;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: none;
     border-radius: 16px;
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    left: 0;
+    left: 50%;
     opacity: 0;
-    padding: 0.75rem;
+    padding: 0.75rem 1rem;
     position: absolute;
-    right: 0;
-    top: calc(100% + 0.75rem);
-    transform: translateY(-10px);
+    right: auto;
+    top: 100%;
+    transform: translate(-50%, -10px);
     transition:
       opacity 0.25s ease,
       visibility 0.25s ease,
       transform 0.25s ease;
     visibility: hidden;
+    width: 100vw;
     z-index: 1000;
   }
 
   .nav-menu.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, 0);
     visibility: visible;
   }
 
@@ -1067,11 +1070,15 @@ body {
 /* Reduce the gap between Domain Experience and Projects */
 
 .domain-section {
-  padding-bottom: 26px;
+  padding-bottom: 30px;
 }
 
 .projects-section {
-  padding-top: 26px;
+  padding-top: 30px;
 }
 
-
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
