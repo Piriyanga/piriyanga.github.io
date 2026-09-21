@@ -1085,11 +1085,12 @@ a {
   pointer-events: none;
   position: fixed;
   right: 20px;
-  transform: translateY(12px);
+  transform: translateY(18px) scale(0.92);
   transition:
-    opacity 0.25s ease,
-    transform 0.25s ease,
-    background 0.2s ease;
+    opacity 0.28s ease,
+    transform 0.28s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
   width: 48px;
   z-index: 1200;
 }
@@ -1097,11 +1098,17 @@ a {
 #back-to-top.visible {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 #back-to-top:hover {
   background: #9cf9ed;
+  box-shadow: 0 14px 28px rgba(20, 184, 166, 0.35);
+  transform: translateY(-3px) scale(1);
+}
+
+#back-to-top:active {
+  transform: translateY(0) scale(0.96);
 }
 
 #back-to-top:focus-visible {
@@ -1116,6 +1123,8 @@ a {
     right: 16px;
     width: 44px;
   }
+
+  #back-to-top:hover {
+    transform: translateY(0) scale(1);
+  }
 }
-
-
