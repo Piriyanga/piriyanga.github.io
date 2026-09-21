@@ -571,6 +571,19 @@ a {
   line-height: 1.65;
 }
 
+.project-header {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 17px;
+}
+
+.project-header .project-tag {
+  margin-bottom: 0;
+}
+
+
+
 /* Timeline */
 
 .timeline {
