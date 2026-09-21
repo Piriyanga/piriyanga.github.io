@@ -1073,7 +1073,7 @@ a {
   background: var(--accent);
   border: 0;
   border-radius: 50%;
-  bottom: 16px;
+  bottom: 18px;
   box-shadow: 0 10px 24px rgba(20, 184, 166, 0.35);
   color: #042f2e;
   cursor: pointer;
@@ -1084,7 +1084,7 @@ a {
   opacity: 0;
   pointer-events: none;
   position: fixed;
-  right: 16px;
+  right: calc((100vw - min(1200px, calc(100% - 40px))) / 2 + 16px);
   transform: translateY(18px) scale(0.92);
   transition:
     opacity 0.28s ease,
@@ -1122,10 +1122,9 @@ a {
 @media (max-width: 520px) {
   #back-to-top {
     bottom: 16px;
-    height: 44px;
     right: 16px;
-    width: 44px;
   }
+}
 
   #back-to-top:hover {
     transform: translateY(0) scale(1);
