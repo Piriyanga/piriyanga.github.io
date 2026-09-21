@@ -1131,16 +1131,30 @@ a {
   }
 }
 
-.about-card p,
-.project-card p {
-  text-align: justify;
-  text-justify: inter-word;
-  overflow-wrap: break-word;
+/* Paragraph alignment */
+
+/* Desktop and tablet */
+@media (min-width: 769px) {
+  .about-card p,
+  .project-card p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
 }
 
-@media (max-width: 520px) {
+/* Mobile */
+@media (max-width: 768px) {
   .about-card p,
   .project-card p {
     text-align: left;
   }
+}
+
+/* Keep headings, labels, links, and buttons left-aligned */
+.about-card h3,
+.project-card h3,
+.project-tag,
+.project-card a,
+.project-card strong {
+  text-align: left;
 }
