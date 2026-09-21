@@ -84,3 +84,19 @@ if ("IntersectionObserver" in window) {
     element.classList.add("visible");
   });
 }
+
+// Back to top button.
+const backToTopButton = document.getElementById("back-to-top");
+
+if (backToTopButton) {
+  const toggleBackToTop = () => {
+    backToTopButton.classList.toggle("visible", window.scrollY > 400);
+  };
+
+  window.addEventListener("scroll", toggleBackToTop, { passive: true });
+  toggleBackToTop();
+
+  backToTopButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
