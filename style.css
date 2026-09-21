@@ -1139,29 +1139,40 @@ section[id] {
   }
 }
 
-/* Project GitHub links */
+/* Project card GitHub link */
 
-.project-card a {
+.project-card a[href*="github"],
+.project-card a[href*="GitHub"] {
   align-items: center;
-  color: var(--blue);
+  background: rgba(96, 165, 250, 0.12);
+  border: 1px solid rgba(96, 165, 250, 0.5);
+  border-radius: 10px;
+  color: #7dd3fc !important;
   display: inline-flex;
   font-weight: 700;
-  gap: 6px;
+  gap: 8px;
+  margin-top: 6px;
+  padding: 10px 14px;
   text-decoration: none;
   transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
     color 0.2s ease,
     transform 0.2s ease;
 }
 
-.project-card a:hover,
-.project-card a:focus-visible {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  transform: translateX(2px);
+.project-card a[href*="github"]:hover,
+.project-card a[href*="GitHub"]:hover,
+.project-card a[href*="github"]:focus-visible,
+.project-card a[href*="GitHub"]:focus-visible {
+  background: rgba(94, 234, 212, 0.15);
+  border-color: var(--accent);
+  color: var(--accent) !important;
+  transform: translateY(-1px);
+  text-decoration: none;
 }
 
-.project-card a i {
+.project-card a[href*="github"] i,
+.project-card a[href*="GitHub"] i {
   color: currentColor;
-  font-size: 0.95em;
 }
