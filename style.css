@@ -1138,3 +1138,30 @@ section[id] {
     transition: none;
   }
 }
+
+/* Project GitHub links */
+
+.project-card a {
+  align-items: center;
+  color: var(--blue);
+  display: inline-flex;
+  font-weight: 700;
+  gap: 6px;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.project-card a:hover,
+.project-card a:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transform: translateX(2px);
+}
+
+.project-card a i {
+  color: currentColor;
+  font-size: 0.95em;
+}
