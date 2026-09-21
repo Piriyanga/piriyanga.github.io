@@ -832,10 +832,12 @@ a {
 
   .domain-section {
     padding-bottom: 22px;
+    padding-top: 18px;
   }
 
   .projects-section {
-    padding-top: 22px;
+    padding-top: 18px;
+    padding-bottom: 22px;
   }
 
   .section-heading {
