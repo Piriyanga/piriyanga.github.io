@@ -1070,11 +1070,11 @@ body {
 /* Reduce the gap between Domain Experience and Projects */
 
 .domain-section {
-  padding-bottom: 30px;
+  padding-bottom: 40px;
 }
 
 .projects-section {
-  padding-top: 30px;
+  padding-top: 40px;
 }
 
 html,
