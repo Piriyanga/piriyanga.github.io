@@ -106,8 +106,6 @@ a {
   white-space: normal;
 }
 
-/* Keep only the Skills heading on one line when it fits */
-
 #skills .section-heading h2 {
   font-size: clamp(1.8rem, 3.5vw, 3rem);
   white-space: nowrap;
@@ -374,7 +372,7 @@ a {
   margin-top: 1px;
 }
 
-/* Quick stats - 4 cards by 2 rows */
+/* Quick stats */
 
 .quick-stats {
   display: grid;
@@ -511,8 +509,7 @@ a {
   transform: translateY(-4px);
 }
 
-.skill-header,
-.project-header {
+.skill-header {
   align-items: center;
   display: flex;
   gap: 0.9rem;
@@ -520,8 +517,7 @@ a {
   min-width: 0;
 }
 
-.skill-header h3,
-.project-header h3 {
+.skill-header h3 {
   margin: 0;
   min-width: 0;
 }
@@ -571,18 +567,66 @@ a {
   line-height: 1.65;
 }
 
+/* Domain experience cards */
+
+.project-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project-card {
+  padding: 26px 23px;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
 .project-header {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 17px;
+  min-width: 0;
 }
 
 .project-header .project-tag {
   margin-bottom: 0;
 }
 
+.project-tag {
+  background: rgba(96, 165, 250, 0.12);
+  border: 1px solid rgba(96, 165, 250, 0.24);
+  border-radius: 999px;
+  color: var(--blue);
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 6px 10px;
+}
 
+.project-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.project-card p {
+  color: var(--secondary);
+  font-size: 0.92rem;
+  margin-bottom: 16px;
+}
+
+.project-card ul {
+  color: var(--secondary);
+  display: grid;
+  gap: 7px;
+  padding-left: 18px;
+}
+
+.project-card li {
+  list-style: disc;
+}
 
 /* Timeline */
 
@@ -656,55 +700,6 @@ a {
 }
 
 .timeline-content li {
-  list-style: disc;
-}
-
-/* Projects */
-
-.project-grid {
-  display: grid;
-  gap: 22px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.project-card {
-  padding: 26px 23px;
-  transition:
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.project-tag {
-  background: rgba(96, 165, 250, 0.12);
-  border: 1px solid rgba(96, 165, 250, 0.24);
-  border-radius: 999px;
-  color: var(--blue);
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  margin-bottom: 17px;
-  padding: 6px 10px;
-}
-
-.project-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 12px;
-}
-
-.project-card p {
-  color: var(--secondary);
-  font-size: 0.92rem;
-  margin-bottom: 16px;
-}
-
-.project-card ul {
-  color: var(--secondary);
-  display: grid;
-  gap: 7px;
-  padding-left: 18px;
-}
-
-.project-card li {
   list-style: disc;
 }
 
