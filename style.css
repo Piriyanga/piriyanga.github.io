@@ -1020,3 +1020,46 @@ a {
     transition: none;
   }
 }
+
+/* Mobile fixes */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+@media (max-width: 768px) {
+  /* Remove the gap between the header and the dropdown */
+  .nav-menu {
+    border-radius: 0 0 16px 16px;
+    border-top: none;
+    left: -20px;
+    right: -20px;
+    top: 100%;
+  }
+
+  /* Prevent sideways dragging caused by decorative elements */
+  .hero::before {
+    display: none;
+  }
+
+  /* Keep wide content inside the screen */
+  .container,
+  .section,
+  .hero,
+  .project-card,
+  .skill-box,
+  .timeline-content,
+  .hero-card {
+    max-width: 100%;
+  }
+
+  .project-tag,
+  .skill-header h3,
+  .project-card h3,
+  .timeline-content h3 {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
