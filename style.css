@@ -1063,3 +1063,15 @@ body {
     word-break: break-word;
   }
 }
+
+/* Reduce the gap between Domain Experience and Projects */
+
+.domain-section {
+  padding-bottom: 30px;
+}
+
+.projects-section {
+  padding-top: 30px;
+}
+
+
