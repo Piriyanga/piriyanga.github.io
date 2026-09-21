@@ -1130,3 +1130,17 @@ a {
     transform: translateY(0) scale(1);
   }
 }
+
+.about-card p,
+.project-card p {
+  text-align: justify;
+  text-justify: inter-word;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 520px) {
+  .about-card p,
+  .project-card p {
+    text-align: left;
+  }
+}
