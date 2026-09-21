@@ -4,6 +4,7 @@ const yearElement = document.getElementById("year");
 const revealElements = document.querySelectorAll(".reveal");
 const sections = document.querySelectorAll("main section[id]");
 const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+const backToTopButton = document.getElementById("back-to-top");
 
 // Display the current year.
 if (yearElement) {
@@ -36,29 +37,29 @@ if (navToggle && navMenu) {
     );
   });
 
-  // Close when a link is tapped.
+  // Close the menu after selecting a navigation link.
   navMenu.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", closeMenu);
   });
 
-  // Close when the page is scrolled.
+  // Close the menu when scrolling.
   window.addEventListener("scroll", closeMenu, { passive: true });
 
-  // Close when tapping outside the menu.
+  // Close the menu when clicking outside it.
   document.addEventListener("click", (event) => {
     if (!navMenu.contains(event.target) && !navToggle.contains(event.target)) {
       closeMenu();
     }
   });
 
-  // Close on Escape.
+  // Close the menu with the Escape key.
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeMenu();
     }
   });
 
-  // Close when switching back to desktop width.
+  // Close the menu when returning to desktop size.
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768) {
       closeMenu();
@@ -66,34 +67,63 @@ if (navToggle && navMenu) {
   });
 }
 
-// Scroll animations.
+// Reveal cards and content as they enter the viewport.
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
 
-const sectionObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px",
+    }
+  );
+
+  revealElements.forEach((element) => {
+    revealObserver.observe(element);
+  });
+} else {
+  revealElements.forEach((element) => {
+    element.classList.add("visible");
+  });
+}
+
+// Highlight the navigation link for the currently visible section.
+if ("IntersectionObserver" in window && sections.length && navLinks.length) {
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      const visibleEntry = entries.find((entry) => entry.isIntersecting);
+
+      if (!visibleEntry) {
         return;
       }
 
       navLinks.forEach((link) => {
-        link.classList.toggle(
-          "active",
-          link.getAttribute("href") === `#${entry.target.id}`
-        );
+        const isCurrentSection =
+          link.getAttribute("href") === `#${visibleEntry.target.id}`;
+
+        link.classList.toggle("active", isCurrentSection);
       });
-    });
-  },
-  {
-    rootMargin: "-35% 0px -55% 0px",
-  }
-);
+    },
+    {
+      rootMargin: "-25% 0px -65% 0px",
+      threshold: 0,
+    }
+  );
 
-sections.forEach((section) => {
-  sectionObserver.observe(section);
-});
-// Back to top button.
-const backToTopButton = document.getElementById("back-to-top");
+  sections.forEach((section) => {
+    sectionObserver.observe(section);
+  });
+}
 
+// Back-to-top button.
 if (backToTopButton) {
   const toggleBackToTop = () => {
     backToTopButton.classList.toggle("visible", window.scrollY > 400);
