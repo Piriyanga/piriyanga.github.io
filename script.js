@@ -2,6 +2,8 @@ const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
 const yearElement = document.getElementById("year");
 const revealElements = document.querySelectorAll(".reveal");
+const sections = document.querySelectorAll("main section[id]");
+const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
 
 // Display the current year.
 if (yearElement) {
@@ -65,31 +67,30 @@ if (navToggle && navMenu) {
 }
 
 // Scroll animations.
-if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
+
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      navLinks.forEach((link) => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === `#${entry.target.id}`
+        );
       });
-    },
-    {
-      threshold: 0.12,
-      rootMargin: "0px 0px -40px 0px",
-    }
-  );
+    });
+  },
+  {
+    rootMargin: "-35% 0px -55% 0px",
+  }
+);
 
-  revealElements.forEach((element) => {
-    revealObserver.observe(element);
-  });
-} else {
-  revealElements.forEach((element) => {
-    element.classList.add("visible");
-  });
-}
-
+sections.forEach((section) => {
+  sectionObserver.observe(section);
+});
 // Back to top button.
 const backToTopButton = document.getElementById("back-to-top");
 
