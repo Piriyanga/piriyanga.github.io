@@ -1208,5 +1208,11 @@ button:focus-visible {
 .projects-footer {
   display: flex;
   justify-content: center;
-  margin-top: 34px;
+  margin-top: 48px;
+}
+
+@media (max-width: 520px) {
+  .projects-footer {
+    margin-top: 32px;
+  }
 }
