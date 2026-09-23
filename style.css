@@ -76,8 +76,6 @@ a {
   width: min(1200px, calc(100% - 40px));
 }
 
-/* Keep linked section headings visible below the sticky header */
-
 section[id] {
   scroll-margin-top: 90px;
 }
@@ -121,8 +119,6 @@ section[id] {
   font-size: clamp(1.8rem, 3.5vw, 3rem);
   white-space: nowrap;
 }
-
-/* Reduce the gap between Domain Experience and Projects */
 
 .domain-section {
   padding-bottom: var(--section-space-small);
@@ -585,11 +581,21 @@ section[id] {
 .project-grid {
   display: grid;
   gap: 22px;
-  /*grid-template-columns: repeat(3, minmax(0, 1fr)); */
-   grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+#education .project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#certifications .project-grid {
+  grid-template-columns: 1fr;
 }
 
 .project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding: 26px 23px;
   transition:
     border-color 0.2s ease,
@@ -646,10 +652,9 @@ section[id] {
   list-style: disc;
 }
 
-/* GitHub project link */
-
 .project-card a[href*="github"] {
   align-items: center;
+  align-self: flex-start;
   background: rgba(96, 165, 250, 0.14);
   border: 1px solid rgba(96, 165, 250, 0.5);
   border-radius: 10px;
@@ -657,7 +662,7 @@ section[id] {
   display: inline-flex;
   font-weight: 700;
   gap: 8px;
-  margin-top: 6px;
+  margin-top: auto;
   min-height: 44px;
   padding: 10px 14px;
   transition:
@@ -677,6 +682,12 @@ section[id] {
 
 .project-card a[href*="github"] i {
   color: currentColor;
+}
+
+.projects-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
 }
 
 /* Timeline */
@@ -908,7 +919,12 @@ section[id] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .project-grid {
+  .project-grid,
+  #education .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #certifications .project-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1030,6 +1046,12 @@ section[id] {
   .timeline-content,
   .hero-card {
     max-width: 100%;
+  }
+
+  .project-grid,
+  #education .project-grid,
+  #certifications .project-grid {
+    grid-template-columns: 1fr;
   }
 
   .project-tag,
@@ -1202,17 +1224,5 @@ button:focus-visible {
   .quick-stats li,
   #back-to-top {
     transition: none;
-  }
-}
-
-.projects-footer {
-  display: flex;
-  justify-content: center;
-  margin-top: 48px;
-}
-
-@media (max-width: 520px) {
-  .projects-footer {
-    margin-top: 32px;
   }
 }
