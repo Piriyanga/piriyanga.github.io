@@ -585,7 +585,8 @@ section[id] {
 .project-grid {
   display: grid;
   gap: 22px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /*grid-template-columns: repeat(3, minmax(0, 1fr)); */
+   grid-template-columns: 1fr;
 }
 
 .project-card {
@@ -1202,4 +1203,10 @@ button:focus-visible {
   #back-to-top {
     transition: none;
   }
+}
+
+.projects-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
 }
