@@ -1271,3 +1271,125 @@ button:focus-visible {
 }
 
 
+/* Certification and education cards */
+
+.qualification-grid {
+  display: grid;
+  gap: 22px;
+}
+
+.qualification-grid--certification {
+  grid-template-columns: minmax(0, 560px);
+  justify-content: start;
+}
+
+.qualification-grid--education {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.qualification-card {
+  background: rgba(18, 28, 43, 0.78);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 26px 23px;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.qualification-card:hover {
+  background: rgba(23, 35, 55, 0.9);
+  border-color: rgba(94, 234, 212, 0.38);
+  transform: translateY(-4px);
+}
+
+.qualification-label {
+  align-self: flex-start;
+  background: rgba(96, 165, 250, 0.12);
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  border-radius: 999px;
+  color: var(--blue);
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  max-width: 100%;
+  padding: 7px 11px;
+  width: max-content;
+}
+
+.qualification-card h3 {
+  color: var(--primary);
+  font-size: 1.25rem;
+  line-height: 1.35;
+  margin-bottom: 14px;
+  overflow-wrap: anywhere;
+}
+
+.qualification-card p {
+  color: var(--secondary);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.qualification-card > p {
+  margin-bottom: 18px;
+}
+
+.qualification-institution {
+  color: var(--blue) !important;
+  font-weight: 600;
+}
+
+.qualification-details {
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+  display: grid;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.qualification-details span {
+  color: var(--secondary);
+  font-size: 0.9rem;
+}
+
+.qualification-details strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Tablet */
+
+@media (max-width: 950px) {
+  .qualification-grid--education {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .qualification-grid--certification,
+  .qualification-grid--education {
+    grid-template-columns: 1fr;
+  }
+
+  .qualification-grid--certification {
+    max-width: 100%;
+  }
+
+  .qualification-card {
+    padding: 23px 20px;
+  }
+
+  .qualification-card h3 {
+    font-size: 1.15rem;
+  }
+}
